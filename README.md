@@ -74,11 +74,14 @@ if (quote.text.length > 120) {
 
 In this section, we will create an asynchronous function that will fetch the quotes from an external API, update the apiQuotes array, and then call the newQuote function. The code for this section will also be provided at the bottom of this section but try to do it yourself first!
 
-- Create a new asynchronus function called getQuotes
-- Call the loading() function
-- Create a new variable called apiURL and set it to this URL 'https://jacintodesign.github.io/quotes-api/data/quotes.json'.
-- Create a try and catch block
-- Inside the try block
+- Create a new `asynchronus` function called `getQuotes`.
+- Call the `loading()` function
+- Create a new variable called apiURL and set it to this URL `'https://jacintodesign.github.io/quotes-api/data/quotes.json'`.
+- Create a `try-and-catch` block.
+- Inside the try block, create a new variable called `response` and set is equal to the await keyword and fetch the data from the apiUrl.
+- Assign the apiQuotes variable to the actual JSON data which can be done with `await response.json()`.
+- Call the newQuote() function.
+- Put `error` inside the catch parameter and leave the block empty.
 
 **Vocabulary**
 1. Async Function (async):
@@ -108,3 +111,40 @@ In this section, we will create an asynchronous function that will fetch the quo
 9. Await for JSON Data (await response.json()):
 - The await keyword is used again to wait for the promise returned by response.json() to be resolved. This ensures that the apiQuotes variable is assigned the actual JSON data before proceeding.
 
+**5. Tweet Quote (Optional)
+
+In this section, you will learn how to tweet the quote but it is optional so free feel to skip.
+
+- Create a new function called `tweetQuote`.
+- Inside the function, create a variable called twitterUrl and set it equal to `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`. You can find this in the official Twitter documentation.
+- Open the window by calling the open function on window and set the parameters to the twitterUrl and 'blank'.
+
+```
+window.open(twitterUrl, '_blank');
+```
+
+**6. Event Listeners**
+
+The event listeners will trigger the `newQuote` and `tweetQuote (optional)` functions when the respective buttons are clicked. Note that the tweetQuote button won't work if you don't finish section 6.
+
+- Add an Event Listener to `newQuoteBtn` and set the parameters to `click` and `newQuote`.
+- Add an Event Listener to `twitterBtn` and set the parameters to `click` and `tweetQuote`.
+
+**Code block for getQuotes()**
+```
+async function getQuotes() {
+    loading();
+
+    const apiUrl = 'https://jacintodesign.github.io/quotes-api/data/quotes.json';
+
+    try {
+        const response = await fetch(apiUrl);
+        apiQuotes = await response.json();
+        newQuote();
+    } catch (error) {
+        // Catch Error Here
+    }
+}
+```
+
+Congrats! You have successfully completed the Generate Quote project! Make sure to save your work! 
