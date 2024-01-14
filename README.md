@@ -70,6 +70,41 @@ if (quote.text.length > 120) {
 - Set the quoteText (the variable we first initialized) equal to quote.text.
 - Finally call the function complete().
 
-**Get Quotes from API**
+**4. Get Quotes from API**
 
+In this section, we will create an asynchronous function that will fetch the quotes from an external API, update the apiQuotes array, and then call the newQuote function. The code for this section will also be provided at the bottom of this section but try to do it yourself first!
+
+- Create a new asynchronus function called getQuotes
+- Call the loading() function
+- Create a new variable called apiURL and set it to this URL 'https://jacintodesign.github.io/quotes-api/data/quotes.json'.
+- Create a try and catch block
+- Inside the try block
+
+**Vocabulary**
+1. Async Function (async):
+- The async keyword is used to declare an asynchronous function. An asynchronous function returns a promise implicitly and allows the use of the await keyword within the function.
+
+2. Loading Function (loading):
+- This function is called at the beginning of the getQuotes function to show a loading spinner or perform any actions indicating that data is being loaded.
+
+3. API URL (apiUrl):
+- This variable stores the URL of the API from which quotes will be fetched.
+
+4. Try-Catch Block:
+- The try block contains the code that may throw an exception, and the catch block handles any errors that occur during execution.
+
+5. Fetch API (fetch):
+- The fetch function is used to make a network request and retrieve data. It returns a promise that resolves to the Response to that request.
+
+6. Await (await):
+- The await keyword can only be used inside an async function. It pauses the execution of the function until the promise is resolved. In this case, it waits for the fetch request to complete and returns the Response object.
+
+7. Response (response):
+- The response object represents the response to the request made by fetch. It includes information such as status, headers, and the actual data.
+
+8. Response.json():
+- The json method is called on the response object to extract the JSON data from the response body. This method also returns a promise that resolves to the parsed JSON data.
+
+9. Await for JSON Data (await response.json()):
+- The await keyword is used again to wait for the promise returned by response.json() to be resolved. This ensures that the apiQuotes variable is assigned the actual JSON data before proceeding.
 
